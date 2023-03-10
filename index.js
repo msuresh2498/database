@@ -1,13 +1,14 @@
-//const express = require("express");
-import express, { response } from "express";
-import { MongoClient } from "mongodb";
-import * as dotenv from 'dotenv' 
+const dotenv = require("dotenv")
 dotenv.config()
+
+const express = require("express")
+const {MongoClient} = require("mongodb")
+
 console.log(process.env.MONGO_URL)
 
 const app = express();
 
-const PORT = 4000;
+const PORT = process.env.PORT;
 
 //const MONGO_URL = "mongodb://127.0.0.1";
 const MONGO_URL = process.env.MONGO_URL;
