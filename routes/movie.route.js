@@ -8,11 +8,11 @@ router.get("/", async function (request, response) {
     response.send(movies)
 });
 
-// router.get("/:id", async function (request, response) {
-//     const moviesid = await client.db("basic").collection("movies").find({})
-//     console.log(moviesid)
-//     response.send(moviesid);
-// });
+router.get("/:id", async function (request, response) {
+    const moviesid = await client.db("basic").collection("movies").find({})
+    console.log(moviesid)
+    response.send(moviesid);
+});
 
 router.get("/:id", async function (request, response) {
     const { id } = request.params
@@ -40,9 +40,7 @@ router.delete("/:id", async function (request, response) {
     console.log(result)
 
     result.deletedCount > 0 ? response.send({ message: "movie deleted successfully!!!" })
-        : response.status(404).send({ message: "Movie not found" })
-        //const movie =movies.filter((mv)=> mv.id === id)
-        ;
+        : response.status(404).send({ message: "Movie not found" });
 });
 
 router.put("/:id", async function (request, response) {
