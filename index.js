@@ -4,6 +4,8 @@ import userRouter from "./routes/users.routes.js"
 import express from 'express'
 import { MongoClient } from 'mongodb'
 import bcrypt from 'bcrypt'
+import cors from 'cors'
+
 
 
 console.log(process.env.MONGO_URL)
@@ -18,6 +20,7 @@ await client.connect();
 console.log("Mongodb is connected");
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", function (request, response) {
     response.send("hello World😊😊😊🎉🎉");
