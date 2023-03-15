@@ -8,11 +8,6 @@ router.get("/", async function (request, response) {
     response.send(movies)
 });
 
-router.get("/:id", async function (request, response) {
-    const moviesid = await client.db("basic").collection("movies").find({})
-    console.log(moviesid)
-    response.send(moviesid);
-});
 
 router.get("/:id", async function (request, response) {
     const { id } = request.params
